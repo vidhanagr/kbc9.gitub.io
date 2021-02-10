@@ -1,0 +1,76 @@
+<html>
+
+<head>
+	<title>Welcome to quiz Website</title>
+	<link rel="stylesheet" type="text/css" href="http://localhost:5000/static/css/bootstrap.css">
+	<script>function submitform() {
+			document.forms["myform"].submit();
+		}
+
+		function sleep(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+
+		async function startTimer() {
+			for (let i = 80; i > 0; --i) {
+				document.getElementById("timer").innerText = i;
+				await sleep(1000);
+			}
+			window.location = "http://localhost:5000/video";
+		}
+
+	</script>
+</head>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		background: url(http://localhost:5000/static/5.jpg);
+		background-size: cover;
+		background-position: center;
+		font-family: sans-serif;
+	}
+</style>
+
+<body onload="startTimer();">
+	<div class="container">
+		<div class="text-center">
+			<img src="http://localhost:5000/static/kbclogo2.png" class="img-fluid">
+		</div>
+		<form action="http://localhost:5000/quiz" method="POST" id="myform" name="myform" <p style="color:white">
+			</p>
+			<div class="text-center">
+				<div class="badge badge-warning" style="border-radius: 20px; width: 40px; height: 40px;">
+					<h4 id="timer">30</h4>
+				</div>
+			</div>
+			<div class="font-weight-bold text-center" name="question" value="{{qid}}">
+				<h1>{{question}}</h1>
+			</div>
+			<br><br>
+
+			<div class="text-center">
+				<input type='radio' style="visibility:hidden; " value="{{option1}}" name='radio' id='radio1'
+					onclick="submitform()" />
+				<label for='radio1' class="btn btn-warning" "btn-lg btn-block"> {{option1}}</label>
+
+				<input type='radio' style="visibility:hidden; " value="{{option2}}" name='radio' id='radio2'
+					onclick="submitform()" />
+				<label for='radio2' class="btn btn-warning" "btn-lg btn-block">{{option2}}</label><br><br>
+
+				<input type='radio' style="visibility:hidden; " value="{{option3}}" name='radio' id='radio3'
+					onclick="submitform()" />
+				<label for='radio3' class="btn btn-warning" "btn-lg btn-block">{{option3}}</label>
+
+				<input type='radio' style="visibility:hidden; " value="{{option4}}" name='radio' id='radio4'
+					onclick="submitform()" />
+				<label for='radio4' class="btn btn-warning" "btn-lg btn-block">{{option4}}</label><br><br>
+
+			</div>
+
+			<!-- <input type="submit" value="submit" class = "btn btn-success"> -->
+		</form>
+	</div>
+</body>
+
+</html>

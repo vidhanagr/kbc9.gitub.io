@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Welcome to Website </title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:5000/static/css/bootstrap.css">
+    <script type="text/javascript">
+
+        function playVideo() {
+            vid = document.getElementById("kbcintro");
+            vid.click();
+            vid.play();
+        }
+
+    </script>
+</head>
+
+<body class="text-center" onload="playVideo();">
+
+    <video id="kbcintro" src="http://localhost:5000/static/kbc3.mp4" controls
+        style="height: 100vh; width: auto;"></video>
+    <br>
+    <a href="http://localhost:5000/quiz" class="btn btn-primary">Click here for playing quiz</a>
+    </br>
+    </br>
+
+</body>
+
+</html>
